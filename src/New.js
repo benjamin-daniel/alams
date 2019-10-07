@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { colors, theme } from './Constants';
 import { AntDesign, MaterialIcons, Ionicons, } from '@expo/vector-icons';
 import Header, { getStatusBarHeight } from './Components/Header'
 import Avatar from './Components/Avatar'
 
 
-const New = ({ }) => {
+const New = (props) => {
     return (
         <View style={styles.container}>
             <Header
@@ -16,14 +16,17 @@ const New = ({ }) => {
                 left={
                     <Ionicons name="ios-arrow-back" size={24} color='#37A0FE' />
                 }
+                leftInstruction={() => props.navigation.goBack()}
                 backgroundColor='#BAD1E2'
             />
-            <View style={{ height: 20, backgroundColor: '#BAD1E2' }} />
+            <View style={{ height: 40, backgroundColor: '#BAD1E2' }} />
             <View style={styles.main}>
-                <View style={{ borderTopRightRadius: 10, marginTop: -20 }}>
+                <View style={{}}>
                     <View style={styles.header}>
                         <Text style={{ color: colors.text, ...theme.h3 }}>Today</Text>
-                        <AntDesign name="plus" size={24} color='#37A0FE' />
+                        <TouchableOpacity>
+                            <AntDesign name="plus" size={24} color='#37A0FE' />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -70,6 +73,18 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     main: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        position: 'absolute',
+        top: 70, 
+        borderTopRightRadius: 50,
+        height: '100%',
+        width: '100%',
+        padding: 20,
+    },
+    task: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        marginBottom: 20,
     }
 });

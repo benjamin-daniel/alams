@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from "react-native";
 import Header from "./Components/Header";
 import { colors, theme } from "./Constants";
 import Avatar from "./Components/Avatar";
@@ -17,8 +17,10 @@ export default function App(props) {
         }
       />
       <View style={styles.body}>
+      <View>
         <Text style={([theme.h3], { color: "#8096ab", fontSize: 28 })}>Good Afternoon,</Text>
         <Text style={([theme.h4light], { color: "#4fadfc", fontSize: 20 })}>Ritchey</Text>
+      </View>
 
         <View style={{ marginVertical: 20, }}>
           <View style={styles.time}>
@@ -32,9 +34,9 @@ export default function App(props) {
         </View>
         <View style={styles.subheader}>
           <Text style={([theme.h4, { textTransform: 'capitalize', color: '#6E889F' }])}>Task lists</Text>
-          <View style={styles.plus}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("New")} style={styles.plus}>
             <AntDesign name="plus" size={24} color='white' />
-          </View>
+          </TouchableOpacity>
         </View>
         <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{ width: '100%', padding: 20 }}>
           {Array(2).fill(0).map((value, index) => (

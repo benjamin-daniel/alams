@@ -11,7 +11,7 @@ const DummmyData = [
 const Task = (props) => {
 
     return (
-        <TouchableOpacity onPress={() => props.navigation.navigate("New")} style={styles.body}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Edit")} style={styles.body}>
             <View style={styles.header}>
                 <Text style={{ color: colors.text, ...theme.h3 }}>Today</Text>
                 <AntDesign name="plus" size={24} color='#37A0FE' />

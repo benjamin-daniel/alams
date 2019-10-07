@@ -9,7 +9,7 @@ import Edit from "./src/Edit";
 export default createAppContainer(
     createStackNavigator({
         Home: App,
-        New,
         Edit,
+        New,
     }, { headerMode: 'none' })
 )
